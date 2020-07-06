@@ -13,13 +13,9 @@ struct eDevTable {
 
     void (* prepareAll)(struct eDevTable *self);
     void (* updateAll)(struct eDevTable *self);
-    void (* emitAll)(struct eDevTable *self, const char *op, const char *cmd);
+    void *(* emitAll)(struct eDevTable *self, const char *op, const char *cmd);
 };
 typedef struct eDevTable t_eDevTable;
-
-void prepareAll(struct eDevTable *self);
-void updateAll(struct eDevTable *self);
-void emitAll(struct eDevTable *self, const char *op, const char *cmd);
 
 t_eDevTable *eDevTable_instance();
 
