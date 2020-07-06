@@ -14,10 +14,10 @@ struct eDevice {
     unsigned int portCount;
     void *data;
 
-    void (*prepare)(struct eDevice *self);
-    void (*update)(struct eDevice *self);
-    void (*emit)(struct eDevice *self, char *op, char *cmd);
-    void (*del)(struct eDevice *self);
+    void (* prepare)(struct eDevice *self);
+    void (* update)(struct eDevice *self);
+    void (* emit)(struct eDevice *self, char *op, char *cmd);
+    void (* del)(struct eDevice *self);
 };
 typedef struct eDevice t_eDevice;
 

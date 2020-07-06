@@ -7,5 +7,20 @@
 
 #include "edevice.h"
 
+struct eDevTable {
+    t_eDevice **devices;
+    unsigned int count;
+
+    void (* prepareAll)(struct eDevTable *self);
+    void (* updateAll)(struct eDevTable *self);
+    void (* emitAll)(struct eDevTable *self, char *op, char *cmd);
+};
+typedef struct eDevTable t_eDevTable;
+
+void prepareAll(struct eDevTable *self);
+void updateAll(struct eDevTable *self);
+void emitAll(struct eDevTable *self, char *op, char *cmd);
+
+t_eDevTable *eDevTable_instance();
 
 #endif //ESHELL_PIO_EDEVTABLE_H

@@ -5,6 +5,6 @@
 #ifndef ESHELL_PIO_EBOOT_H
 #define ESHELL_PIO_EBOOT_H
 
-void e_boot();
+void eboot_exec();
 
 #endif //ESHELL_PIO_EBOOT_H
