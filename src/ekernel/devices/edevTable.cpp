@@ -16,7 +16,7 @@ void updateAll(struct eDevTable *self) {
         self->devices[i]->update(self->devices[i]);
 }
 
-void emitAll(struct eDevTable *self, char *op, char *cmd) {
+void emitAll(struct eDevTable *self, const char *op, const char *cmd) {
     for (unsigned int i = 0; i < self->count; i++)
         self->devices[i]->emit(self->devices[i], op, cmd);
 }

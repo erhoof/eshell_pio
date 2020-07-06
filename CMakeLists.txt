@@ -30,4 +30,4 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(Z_DUMMY_TARGET ${SRC_LIST} src/ekernel/devices/display_1602_i2c/display_1602_i2c.cpp src/ekernel/devices/edevTable.cpp src/eboot/eboot.cpp)
+add_executable(Z_DUMMY_TARGET ${SRC_LIST} src/ekernel/devices/display_1602_i2c/display_1602_i2c.cpp src/ekernel/devices/edevTable.cpp src/eboot/eboot.cpp src/ekernel/ekernel.cpp include/eapi/api_edisplay.h src/eapi/api_edisplay.cpp)

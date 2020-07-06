@@ -8,6 +8,7 @@
 #include <string.h>
 
 #include "../../../../lib/LiquidCrystal/LiquidCrystal_I2C.h"
+#include "Arduino.h"
 
 t_eDevice *display_1602_i2c_instance() {
     t_eDevice *device = (t_eDevice *)malloc(sizeof(t_eDevice));
@@ -28,17 +29,28 @@ void prepare(struct eDevice *self) {
 
     LiquidCrystal_I2C *lcdPtr = (LiquidCrystal_I2C *)self->data;
     lcdPtr->init();
-    lcdPtr->backlight();
+    lcdPtr->setBacklight(1);
     lcdPtr->home();
-    lcdPtr->print("init.");
+
+    strcpy((char *)self->altData, "1602DISP init.");
+    lcdPtr->print((char *)self->altData);
+    delay(1000);
 }
 
 void update(struct eDevice *self) {
 
 }
 
-void emit(struct eDevice *self, char *op, char *cmd) {
+void emit(struct eDevice *self, const char *op, const char *cmd) {
+    if (!strcmp(op, "print")) {
+        ((LiquidCrystal_I2C*) (self->data))->clear();
+        ((LiquidCrystal_I2C*) (self->data))->print((char *)self->altData);
 
+        ((LiquidCrystal_I2C*) (self->data))->setCursor(0, 1);
+        strcpy((char *)self->altData, cmd);
+        ((LiquidCrystal_I2C*) (self->data))->print((char *)self->altData);
+        delay(500);
+    }
 }
 
 void del(t_eDevice *self) {

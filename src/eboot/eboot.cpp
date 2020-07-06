@@ -9,6 +9,8 @@
 #include "../../include/ekernel/devices/edevTable.h"
 #include "../../include/ekernel/devices/display_1602_i2c/display_1602_i2c.h"
 
+#include "../../include/ekernel/ekernel.h"
+
 void eboot_exec() {
     t_eDevTable *devTable = eDevTable_instance();
 
@@ -18,4 +20,7 @@ void eboot_exec() {
     devTable->devices[0] = display_1602_i2c_instance();
 
     devTable->prepareAll(devTable);
+
+    t_eKernel *kernel = ekernel_instance();
+    ekernel_instance()->exec(kernel);
 }

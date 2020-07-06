@@ -5,6 +5,11 @@
 #ifndef ESHELL_PIO_EKERNEL_H
 #define ESHELL_PIO_EKERNEL_H
 
-void exec();
+struct eKernel {
+    void (*exec)(struct eKernel *self);
+};
+typedef struct eKernel t_eKernel;
+
+t_eKernel *ekernel_instance();
 
 #endif //ESHELL_PIO_EKERNEL_H

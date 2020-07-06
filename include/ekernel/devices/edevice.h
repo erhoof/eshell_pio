@@ -13,10 +13,11 @@ struct eDevice {
     t_ePort *ports;
     unsigned int portCount;
     void *data;
+    void *altData;
 
     void (* prepare)(struct eDevice *self);
     void (* update)(struct eDevice *self);
-    void (* emit)(struct eDevice *self, char *op, char *cmd);
+    void (* emit)(struct eDevice *self, const char *op, const char *cmd);
     void (* del)(struct eDevice *self);
 };
 typedef struct eDevice t_eDevice;
