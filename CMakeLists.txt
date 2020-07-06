@@ -30,4 +30,4 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(Z_DUMMY_TARGET ${SRC_LIST} include/eboot/eboot.h src/eboot/eboot.c include/ekernel/ekernel.h include/ekernel/devices/edevice.h include/ekernel/devices/eport.h)
+add_executable(Z_DUMMY_TARGET ${SRC_LIST} include/eboot/eboot.h src/eboot/eboot.c include/ekernel/ekernel.h include/ekernel/devices/edevice.h include/ekernel/devices/eport.h include/ekernel/devices/display_1602_i2c/display_1602_i2c.h src/ekernel/devices/display_1602_i2c/display_1602_i2c.cpp include/ekernel/devices/edevTable.h)
